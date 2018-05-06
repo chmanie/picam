@@ -43,7 +43,7 @@
 #include "interface/mmal/util/mmal_connection.h"
 #include "interface/mmal/mmal_parameters_camera.h"
 
-#define MAX_DATA_BUFFER_SIZE        262144
+#define MAX_DATA_BUFFER_SIZE        524288
 #define MAX_REQUEST_BUFFER_SIZE     4096
 
 #define UNUSED(expr) do { (void)(expr); } while (0)
@@ -1082,7 +1082,7 @@ static void server_loop()
     start_all();
 
     // Main loop - keep going until we don't want any more JPEGs.
-    state.stdin_buffer = (char*) malloc(MAX_REQUEST_BUFFER_SIZE);  
+    state.stdin_buffer = (char*) malloc(MAX_REQUEST_BUFFER_SIZE);
 
     for (;;) {
         struct pollfd fds[3];
